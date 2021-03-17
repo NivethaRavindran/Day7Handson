@@ -1,0 +1,294 @@
+Program1:
+package com.day5;
+
+import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Scanner;
+ class UserMainCode{
+	 static boolean validatedate(String strdate){
+		 if(strdate.trim().equals("-")){
+			 return true;
+		 }
+		 else
+		 {
+			 SimpleDateFormat frmt=new SimpleDateFormat("dd-mm-yyyy");
+			 frmt.setLenient(false);
+		
+		 try{
+			 Date d=frmt.parse(strdate);
+			 System.out.println(strdate+" valid ");
+			 
+			 
+		 }
+		 catch(ParseException e){
+			 System.out.println(strdate+"invalid");
+			 return false;
+			 
+		 }
+		 return true;	 
+		 }
+	 }
+ }
+	 
+
+public class Program1 {
+
+	public static void main(String[] args) {
+		String date;
+		Scanner s=new Scanner(System.in);
+		date=s.nextLine();
+		UserMainCode umc=new UserMainCode();
+		umc.validatedate(date);
+		
+
+	}
+
+}
+
+output:
+1)
+29-10-2020
+29-10-2020 valid 
+2)
+29/03/2012
+29/03/2012invalid
+
+Program2:
+package com.day5;
+
+import java.util.Scanner;
+class Name{
+	static boolean Name1(String x){
+		int i,j;
+		i=x.length();
+		//System.out.println(i);
+		for(j=0;j<=i-1;j++){
+			
+			if(j%2!=0){
+				if(x.charAt(j)=='a'|| x.charAt(j)=='A'){
+					return true;
+				}
+				else{
+					return false;
+				}
+			}
+		}
+
+	return true;
+	}
+}
+
+public class Program3 {
+
+	public static void main(String[] args) {
+		String n;
+		int i;
+		Scanner s=new Scanner(System.in);
+		n=s.nextLine();
+		Name.Name1(n);
+		if(Name.Name1(n)){
+			System.out.println("valid");
+			
+		}
+		else{
+			System.out.println("invalid");
+		}
+	
+
+	}
+
+}
+
+output:
+bala
+valid
+rear
+invalid
+
+program3:
+package com.day5;
+
+import java.util.Scanner;
+
+class Shape{
+	protected String shapename;
+	Shape(){
+		shapename="square";
+	}
+	double caluculateArea(){
+		return 0;
+	}
+}
+class Square extends Shape{
+	private int side;
+	Square(int sd){
+		shapename="square";
+		side=sd;
+		
+	}
+	double calculateArea(){
+		return side*side;
+	}
+	
+}
+class Rectangle extends Shape{
+	private int length,breadth;
+	Rectangle(int x,int y){
+		length=x;
+		breadth=y;
+		shapename="Rectangle";
+	}
+	double calculateArea(){
+		return length*breadth;
+	}
+	
+}
+class Circle extends Shape{
+	private int radius;
+	private double pi=3.14;
+	Circle(int c1){
+		
+		shapename="circle";
+		radius=c1;
+	}
+	double calculateArea(){
+		return pi*radius*radius;
+	}
+	
+	
+}
+
+public class Program4 {
+
+	public static void main(String[] args) {
+		System.out.println("1.Rectangle\n2.Square\n3.Circle");
+		Scanner s=new Scanner(System.in);
+		int a;
+		a=s.nextInt();
+		switch(a){
+		case 1:
+			int len,br;
+			System.out.println("enter the length and breadth:");
+			len=s.nextInt();
+			br=s.nextInt();
+			Rectangle r=new Rectangle(len,br);
+			double rec;
+			rec=r.calculateArea();
+			System.out.println(rec);
+			break;
+		case 2:
+			int sq;
+			System.out.println("Enter the side:");
+			sq=s.nextInt();
+			Square sqr=new 	Square(sq);
+			double sqr1;
+			sqr1=sqr.calculateArea();
+			System.out.println(sqr1);
+			break;
+		case 3:
+			int r1;
+			System.out.println("Enter Radius:");
+			r1=s.nextInt();
+			Circle c=new Circle(r1);
+			double cir;
+			cir=c.calculateArea();
+			System.out.println(cir);
+			break;
+		}
+		
+		
+
+	}
+
+}
+output:
+1)
+1.Rectangle
+2.Square
+3.Circle
+1
+enter the length and breadth:
+20
+30
+600.0
+
+2)
+1.Rectangle
+2.Square
+3.Circle
+2
+Enter the side:
+30
+900.0
+
+3)
+1.Rectangle
+2.Square
+3.Circle
+3
+Enter Radius:
+20
+1256.0
+
+Program4:
+package com.day5;
+
+import java.util.Scanner;
+class CustomException extends Exception{
+	CustomException(String name,int age){
+		try{
+			if(age>=19){
+				System.out.println("Player name:"+name);
+				System.out.println("Player Age:"+age);
+			}
+			else{
+				throw new Exception();
+				
+			}
+			
+		}
+		catch(Exception ex){
+			System.out.println("InvalidAgeRangeException");
+			}
+		
+		
+	}
+	
+	
+}
+
+
+public class Program6{
+	static String name;
+	static int age;
+
+	public static void main(String[] args) {
+		
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter the player name:");
+		name=s.nextLine();
+		System.out.println("Enter the player age:");
+		age=s.nextInt();
+		CustomException ce=new CustomException(name,age);
+		
+		
+	}
+}
+output:
+1)
+Enter the player name:
+raina
+Enter the player age:
+24
+Player name:raina
+Player Age:24
+
+2)
+Enter the player name:
+dhoni
+Enter the player age:
+13
+InvalidAgeRangeException
+
+

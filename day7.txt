@@ -1,0 +1,146 @@
+Handson day7
+Program1:
+package com.day7;
+
+import java.util.Scanner;
+class Runs{
+	void displayRuns(int x){
+		int sum=0,avg=0,k;
+		Scanner sn=new Scanner(System.in);
+		System.out.println("The runs are:");
+		for(int j=0;j<x;j++){
+			k=sn.nextInt();
+			sum=sum+k;
+			
+		}
+		System.out.println("The total runs:"+sum);
+		
+		avg=sum/x;
+		System.out.println("Avg run is:"+avg);
+		
+	}
+}
+
+public class Program1 {
+
+	public static void main(String[] args) {
+		int a;
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter the no of matches csk played:");
+		a=s.nextInt();
+		Runs r=new Runs();
+		r.displayRuns(a);
+		
+
+	}
+
+}
+ output:
+Enter the no of matches csk played:
+6
+The runs are:
+150
+200
+120
+110
+60
+160
+The total runs:800
+Avg run is:133
+
+Program2:
+package com.day7;
+
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class Program2 {
+	public static void main(String[] args){
+		int runs;
+		Scanner sn=new Scanner(System.in);
+		System.out.println("Enter the total matches by raina:");
+		runs=sn.nextInt();
+		System.out.println("Enter runs:");
+		Set<Integer> i=new TreeSet<>();
+		for(int j=0;j<runs;j++){
+			int k=sn.nextInt();
+			i.add(k);
+		}
+		System.out.println("The sorted runs");
+		for(int x:i){
+			System.out.println(x);
+		}
+		
+	}
+
+}
+
+output:
+Enter the total matches by raina:
+6
+Enter runs:
+60
+78
+100
+120
+80
+75
+The sorted runs
+60
+75
+78
+80
+100
+120
+
+Program3:
+package com.day7;
+
+import java.awt.List;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class Program3 {
+
+	public static void main(String[] args) {
+		int a;
+		String venue,v;
+		Scanner s=new Scanner(System.in);	
+		Scanner s1=new Scanner(System.in);	
+		ArrayList ls=new ArrayList<>();
+		System.out.println("Enter no of matches:");
+		a=s.nextInt();
+		System.out.println("The Venune's are:");
+		for(int i=0;i<a;i++){
+			v=s1.nextLine();
+			ls.add(v);
+		}
+		
+		System.out.println("last");
+		venue=s1.nextLine();
+		System.out.println(Collections.frequency(ls,venue));
+		
+	
+		
+		
+	}
+	
+
+}
+output:
+8
+The Venune's are:
+Eden Gardens
+Eden Gardens
+Eden Gardens
+Eden Gardens
+M. Chinnaswamy Stadium
+Wankhede Stadium
+Eden Gardens
+Eden Gardens
+
+Eden Gardens
+6
+

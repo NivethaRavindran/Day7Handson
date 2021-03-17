@@ -1,0 +1,437 @@
+Problem1:
+package com.pack;
+
+public class Program1 {
+	public static void main(String[ ] args) {
+		int x = 5;
+		while (x > 1) {
+			x = x + 1;
+			if (x < 3) {
+				System.out.println("small x");
+				}
+		}
+	}
+}
+
+output:
+    small x
+
+Problem2:
+package com.pack;
+
+public class Digit {
+
+	public static void main(String[] args) {
+		int x = 1;
+		while (x < 10) {
+			if (x > 3) {
+				System.out.println("big x");
+			}
+		}
+
+	}
+
+}
+
+ans:
+Compilation is done but it does not print anything.
+In this program the if condition does not satisfy...
+
+Problem3:
+package com.pack;
+
+public class Loop {
+
+	public static void main(String[] args) {
+		int x = 5;
+
+        while (x  > 1) {
+
+              x = x - 1;
+
+   if (x < 3) {
+
+         System.out.println("small x");
+
+   }
+
+}
+
+	}
+
+}
+output:
+small x
+small x
+
+
+
+Problem4:
+package com.pack;
+
+public class Program4 {
+	
+	public static void main(String[] args) {
+		String str="Hello";
+		String str1="Nivetha";
+
+		System.out.println(str+" "+str1);
+	}
+
+}
+
+output:
+Hello Nivetha
+
+Problem5:
+package com.pack;
+
+public class Program5 {
+
+	public static void main(String[] args) {
+		System.out.println("Hello World!\nIt's been nice knowing you.\nGoodbye World!");
+	}
+
+}
+output:
+Hello World!
+It's been nice knowing you.
+Goodbye World!
+
+Problem7:
+package com.pack;
+
+public class Program7 {
+
+	public static void main(String[] args) {
+		int i,j=36;
+		for(i=0;i<=j;i++){
+			System.out.println(i);
+		}
+	}
+
+}
+ output:
+0   
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12........36
+
+Problem8:
+package com.pack;
+
+public class HelloRank {
+
+	public static void main(String[] args) {
+		String name = "Rank";
+		/* Now let's say hello */
+		System.out.println("Hello "+ name);
+	}
+}
+output:
+Hello Rank
+
+Problem9:
+package com.pack;
+
+public class Area {
+
+	public static void main(String[] args) {
+		double a;
+		double r;
+		final double pi = Math.PI;
+
+		r = 1.0;
+		a = pi * r * r;
+		display(r,a);
+
+		r = 1.5;
+		a = pi * r * r;
+		display(r,a);
+
+		r = 2.0;
+		a = pi * r * r;
+		display(r,a);
+		}//end main
+	static void display(double r, double a){
+		System.out.println("For radius = " + r + ", area = " + a);
+		}//end print
+}//end Area class
+
+output:
+For radius = 1.0, area = 3.141592653589793
+For radius = 1.5, area = 7.0685834705770345
+For radius = 2.0, area = 12.566370614359172
+
+Problem10:
+package com.pack;
+
+public class Hexy {
+
+	public static void main(String[] args) {
+		Integer i = 42;
+		String s=(i<40)?"life"(i>50)?"universe":"everything";
+		System.out.println(s);
+
+		    
+
+		
+
+	}
+
+}
+
+ans:
+ F.An exception is thrown at runtime.
+
+Correct syntax: String s = (i<40)?(i>50)?"life":"universe":"everything";
+output: Everything
+
+Problem11:
+package com.pack;
+
+class Pattern{
+	public int i,j;
+	void Pattern1(){
+		for(i=0;i<5;i++){
+			for(j=0;j<5;j++){
+				System.out.print("*");
+			}
+		System.out.println();
+		}
+		
+	}
+	
+	void pattern2(){
+		int i, j, row = 4;       
+		for (i=0; i<row; i++){   
+			for (j=row-i; j>1; j--){  
+				System.out.print(" ");   
+				}   
+			for (j=0; j<=i; j++ ){ 
+				System.out.print("* ");
+				}
+			System.out.println();
+			} 
+		}
+}
+			
+		
+
+
+
+public class Problem6 {
+
+	public static void main(String[] args) {
+		Pattern ob=new Pattern();
+		ob.Pattern1();
+		ob.pattern2();
+		
+		
+	}
+
+}
+
+output:
+*****
+*****
+*****
+*****
+*****
+   * 
+  * * 
+ * * * 
+* * * * 
+
+
+Handson day3
+
+Program1:
+package com.pack;
+import java.util.Scanner;
+
+
+class Venue{
+	String name;
+	String city;
+	
+	Venue(String n,String c){
+		name=n;
+		city=c;
+	}
+}
+
+public class Program1 {
+
+	public static void main(String[] args) {
+		
+		String str1,str2;
+		
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Enter a venune name : ");
+		str1 = scan.nextLine();
+		System.out.println("Enter city name");
+		str2 = scan.nextLine();
+		Venue v=new Venue(str1,str2);
+		
+		System.out.println("Venue details:");
+		System.out.println("venue name:"+v.name);
+		System.out.println("city name:"+v.city);
+		
+		
+		
+		
+		
+	}
+
+}
+
+output:
+Enter a venune name : M. A. Chidambaram Stadium 
+Enter city name
+Chennai
+Venue details:
+venue name:M. A. Chidambaram Stadium 
+city name:Chennai
+
+Program2:
+package com.pack;
+import java.util.Scanner;
+
+class Player{
+	String name,country,skill;
+	void playerdetails(String x,String y,String z){
+		System.out.println("Player details:");
+		System.out.println("Player name:"+x);
+		System.out.println("country name:"+y);
+		System.out.println("Skill:"+z);
+		
+	}
+	
+	
+}
+
+public class Program2 {
+
+	public static void main(String[] args) {
+		String a,b,c;
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter the player name:");
+		a=s.nextLine();
+		System.out.println("Enter the country name:");
+		b=s.nextLine();
+		System.out.println("Enter the skill:");
+		c=s.nextLine();
+		Player p=new Player();
+		p.playerdetails(a,b,c);
+		
+		
+	}
+
+}
+
+output:
+Enter the player name:
+MS Dhoni
+Enter the country name:
+India
+Enter the skill:
+All rounder
+Player details:
+Player name:MS Dhoni
+country name:India
+Skill:All rounder
+
+Program3:
+package com.pack;
+import java.util.Scanner;
+
+class Delivery{
+	public long over,balls,runs;
+	public String batsman,bowler,nonStriker;
+	
+	Delivery(long x,long y,long z,String s1,String s2,String s3){
+		over=x;
+		balls=y;
+		runs=z;
+		batsman=s1;
+		bowler=s2;
+		nonStriker=s3;
+		
+	}
+	
+	void displayDeliveryDetails(){
+		System.out.println("Delivery details:");
+		System.out.println("overs:"+over);
+		System.out.println("Balls:"+balls);
+		System.out.println("Runs:"+runs);
+		System.out.println("Batsman:"+batsman);
+		System.out.println("Bowler:"+bowler);
+		System.out.println("Nonstricker"+nonStriker);
+	}
+	
+}
+
+public class Program3 {
+
+	public static void main(String[] args) {
+		long a,b,c,e;
+		String bat,bow,nonst,out;
+		Scanner s = new Scanner(System.in);
+		Scanner s1 = new Scanner(System.in);
+		System.out.println("Enter the overs:");
+		a=s.nextLong();
+		System.out.println("Enter the balls:");
+		b=s.nextLong();
+		System.out.println("Enter the runs:");
+		c=s.nextLong();
+		
+		System.out.println("Enter the batsman name:");
+		bat=s1.nextLine();
+		
+		System.out.println("Enter the nonstricker:");
+		nonst=s1.nextLine();
+		System.out.println("Enter the bowler name:");
+		bow=s1.nextLine();
+		Delivery d=new Delivery(a,b,c,bat,bow,nonst);
+		d.displayDeliveryDetails();
+		
+		
+		
+		
+		
+
+	}
+
+}
+
+output:
+Enter the overs:
+2
+Enter the balls:
+12
+Enter the runs:
+30
+Enter the batsman name:
+dhoni
+Enter the bowler name:
+raghul
+Enter the nonstricker:
+raina
+Delivery details:
+overs:2
+Balls:12
+Runs:30
+Batsman:dhoni
+Bowler:raghul
+Nonstricker:raina
+
