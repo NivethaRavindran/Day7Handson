@@ -1,0 +1,220 @@
+MYSQL EXERCISE:
+
+A)
+
+mysql> create database sample;
+Query OK, 1 row affected (0.33 sec)
+
+mysql> use sample;
+Database changed
+mysql> CREATE TABLE PROGRAMMER
+    -> (EmpNo numeric(5),
+    -> ProjId varchar(5),
+    -> LastName varchar(30),
+    -> FirstName varchar(30),
+    -> HireDate Date,
+    -> Language varchar(15),
+    -> TaskNo numeric(2),
+    -> Privilidge varchar(25)
+    -> );
+Query OK, 0 rows affected (3.79 sec)
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| handson            |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sample             |
+| sys                |
++--------------------+
+6 rows in set (0.36 sec)
+
+mysql> SHOW TABLES;
++------------------+
+| Tables_in_sample |
++------------------+
+| programmer       |
++------------------+
+1 row in set (0.03 sec)
+mysql> DESCRIBE PROGRAMMER;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| EmpNo      | decimal(5,0) | YES  |     | NULL    |       |
+| ProjId     | varchar(5)   | YES  |     | NULL    |       |
+| LastName   | varchar(30)  | YES  |     | NULL    |       |
+| FirstName  | varchar(30)  | YES  |     | NULL    |       |
+| HireDate   | date         | YES  |     | NULL    |       |
+| Language   | varchar(15)  | YES  |     | NULL    |       |
+| TaskNo     | decimal(2,0) | YES  |     | NULL    |       |
+| Privilidge | varchar(25)  | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+8 rows in set (0.07 sec)
+
+mysql> INSERT INTO PROGRAMMER(EmpNo,ProjId,LastName,FirstName,HireDate,Language,TaskNo,Privilidge)VALUES
+    -> (201,"Gupta","Saurav",1/1/95,"NPR","VB",52,"Secret"),    
+    -> (390,"KWC","Gosh","pinky",1/05/93,"JAVA",11,"Top Secret"),
+    -> (789,"RNC","Agarwal","Praveen",08/31/98,"VB",11,"Secret"),
+    -> (134,"TIPPS","Chaudary","Supriyo",07/15/95,"C++",52,"Secret"),
+    -> (896,"KWC","Jha","Ranjit",06/15/97,"JAVA",10,"Top Secret"),
+    -> (345,"TIPPS","John","peter",11/15/99,"JAVA",52,NULL),
+    -> (563,"NITTS","Andreson","Andy",08/15/94,"C++",89,"Confidential");
+Query OK, 7 rows affected (0.23 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+mysql> SELECT*FROM PROGRAMMER;
++-------+--------+----------+-----------+------------+----------+--------+--------------+
+| EmpNo | ProjId | LastName | FirstName | HireDate   | Language | TaskNo | Privilidge   |
++-------+--------+----------+-----------+------------+----------+--------+--------------+
+|   201 | NPR    | Gupta    | Saurav    | 0000-00-00 | VB       |     52 | Secret       |
+|   390 | KWC    | Gosh     | pinky     | 0000-00-00 | JAVA     |     11 | Top Secret   |
+|   789 | RNC    | Agarwal  | Praveen   | 0000-00-00 | VB       |     11 | Secret       |
+|   134 | TIPPS  | Chaudary | Supriyo   | 0000-00-00 | C++      |     52 | Secret       |
+|   896 | KWC    | Jha      | Ranjit    | 0000-00-00 | JAVA     |     10 | Top Secret   |
+|   345 | TIPPS  | John     | peter     | 0000-00-00 | JAVA     |     52 | NULL         |
+|   563 | NITTS  | Andreson | Andy      | 0000-00-00 | C++      |     89 | Confidential |
++-------+--------+----------+-----------+------------+----------+--------+--------------+
+7 rows in set (0.10 sec)
+ mysql> UPDATE PROGRAMMER
+    -> SET
+    -> ProjId="TIIPS",
+    -> Language="c++"
+    -> WHERE
+    -> EmpNo=201;
+Query OK, 1 row affected (0.28 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from programmer;
++-------+--------+----------+-----------+------------+----------+--------+--------------+
+| EmpNo | ProjId | LastName | FirstName | HireDate   | Language | TaskNo | Privilidge   |
++-------+--------+----------+-----------+------------+----------+--------+--------------+
+|   201 | TIIPS  | Gupta    | Saurav    | 0000-00-00 | c++      |     52 | Secret       |
+|   390 | KWC    | Gosh     | pinky     | 0000-00-00 | JAVA     |     11 | Top Secret   |
+|   789 | RNC    | Agarwal  | Praveen   | 0000-00-00 | VB       |     11 | Secret       |
+|   134 | TIPPS  | Chaudary | Supriyo   | 0000-00-00 | C++      |     52 | Secret       |
+|   896 | KWC    | Jha      | Ranjit    | 0000-00-00 | JAVA     |     10 | Top Secret   |
+|   345 | TIPPS  | John     | peter     | 0000-00-00 | JAVA     |     52 | NULL         |
+|   563 | NITTS  | Andreson | Andy      | 0000-00-00 | C++      |     89 | Confidential |
++-------+--------+----------+-----------+------------+----------+--------+--------------+
+7 rows in set (0.00 sec)
+
+mysql> UPDATE BOOKS
+    -> SET
+    -> ShelfNo="s10"
+    -> WHERE
+    -> Title="dbms";
+Query OK, 2 rows affected (0.30 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select*from books;
++--------+-------+---------+--------------------------+--------------------+-------+--------------+---------+
+| Bookid | Title | Topicid | PublisherName            | Placeofpublication | price | PurchaseDate | ShelfNo |
++--------+-------+---------+--------------------------+--------------------+-------+--------------+---------+
+|   8293 | dbms  | db1     | prentice hall            | mumbai             |   255 | 0000-00-00   | s10     |
+|   5646 | dbms  | db1     | pearson education        | mumbai             |   655 | 0000-00-00   | s10     |
+|   6565 | c     | c1      | tmh                      | mumbai             |   840 | 0000-00-00   | s66     |
+|   4576 | java  | java1   | guru govind publications | delhi              |   500 | 0000-00-00   | s87     |
+|   3433 | oops  | oops1   | dave publishers          | pune               |   600 | 0000-00-00   | s56     |
+|   4655 | sad   | sad1    | sajan publications       | cochin             |   700 | 0000-00-00   | s76     |
++--------+-------+---------+--------------------------+--------------------+-------+--------------+---------+
+6 rows in set (0.00 sec)
+
+mysql> DELETE FROM PROGRAMMER WHERE FirstName="Supriyo";
+Query OK, 1 row affected (0.26 sec)
+
+mysql> select*from programmer;
++-------+--------+----------+-----------+------------+----------+--------+--------------+
+| EmpNo | ProjId | LastName | FirstName | HireDate   | Language | TaskNo | Privilidge   |
++-------+--------+----------+-----------+------------+----------+--------+--------------+
+|   201 | TIIPS  | Gupta    | Saurav    | 0000-00-00 | c++      |     52 | Secret       |
+|   390 | KWC    | Gosh     | pinky     | 0000-00-00 | JAVA     |     11 | Top Secret   |
+|   789 | RNC    | Agarwal  | Praveen   | 0000-00-00 | VB       |     11 | Secret       |
+|   896 | KWC    | Jha      | Ranjit    | 0000-00-00 | JAVA     |     10 | Top Secret   |
+|   345 | TIPPS  | John     | peter     | 0000-00-00 | JAVA     |     52 | NULL         |
+|   563 | NITTS  | Andreson | Andy      | 0000-00-00 | C++      |     89 | Confidential |
++-------+--------+----------+-----------+------------+----------+--------+--------------+
+6 rows in set (0.00 sec)
+
+mysql> ALTER TABLE WEATHER
+    -> ADD Climate varchar(20);
+Query OK, 0 rows affected (2.34 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+
+mysql> ALTER TABLE WEATHER
+    -> ALTER Climate
+    -> SET DEFAULT 'sunny';
+Query OK, 0 rows affected (1.42 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+mysql> select*from weather;
++------------+-------------+------+------+---------+
+| city       | state       | high | low  | Climate |
++------------+-------------+------+------+---------+
+| Bangalore  | Karnataka   |   77 |   60 | NULL    |
+| calcutta   | Westbwngal  |  105 |   90 | NULL    |
+| Mumbai     | Maharashtra |   88 |   69 | NULL    |
+| Newdelhi   | NULL        |   80 |   72 | NULL    |
+| Trivandrum | kerala      |  101 |   92 | NULL    |
++------------+-------------+------+------+---------+
+5 rows in set (0.02 sec)
+mysql> UPDATE
+    -> WEATHER
+    -> SET
+    -> Climate="Sunny"
+    -> where
+    -> Climate IS NULL;
+Query OK, 5 rows affected (0.19 sec)
+Rows matched: 5  Changed: 5  Warnings: 0
+
+mysql> UPDATE
+    -> WEATHER
+    -> SET
+    -> Climate="Rainy"
+    -> where
+    -> city="Bangalore";
+Query OK, 1 row affected (0.16 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE
+    -> WEATHER
+    -> SET
+    -> Climate="cloudy"
+    -> where
+    -> city="Newdelhi";
+Query OK, 1 row affected (0.19 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE
+    -> WEATHER
+    -> SET
+    -> Climate="snow"
+    -> where
+    -> city="calcutta";
+Query OK, 1 row affected (0.11 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> sekect*from weather
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'sekect*from weather' at line 1
+mysql> select*from weather;
++------------+-------------+------+------+---------+
+| city       | state       | high | low  | Climate |
++------------+-------------+------+------+---------+
+| Bangalore  | Karnataka   |   77 |   60 | Rainy   |
+| calcutta   | Westbwngal  |  105 |   90 | snow    |
+| Mumbai     | Maharashtra |   88 |   69 | Sunny   |
+| Newdelhi   | NULL        |   80 |   72 | cloudy  |
+| Trivandrum | kerala      |  101 |   92 | Sunny   |
++------------+-------------+------+------+---------+
+5 rows in set (0.00 sec)
+mysql> DROP TABLE WEATHER;
+Query OK, 0 rows affected (1.96 sec)
+mysql> SHOW TABLES;
++------------------+
+| Tables_in_sample |
++------------------+
+| books            |
+| programmer       |
++------------------+
+2 rows in set (0.04 sec)
